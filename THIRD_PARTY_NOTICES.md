@@ -1,0 +1,37 @@
+# Third-party notices
+
+## Pydantic PyCharm Plugin
+
+Reference upstream: https://github.com/koxudaxi/pydantic-pycharm-plugin
+
+Reference compatibility fork: https://github.com/Toximiner/pydantic-pycharm-plugin
+
+The behavior of the insert-required / insert-all actions was adapted from
+`PydanticInsertArgumentsQuickFix.kt`, the associated `insertargumentsquickfix`
+test scenarios, and the plugin's field-name assistance. The VS Code host,
+Pylance integration, structural scanner, snippets, and providers are new
+JavaScript implementations; the Kotlin/JetBrains PSI backend is not bundled.
+
+The upstream project is distributed under this license:
+
+MIT License
+
+Copyright (c) 2019 Koudai Aono
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

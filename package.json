@@ -1,0 +1,105 @@
+{
+  "name": "pydantic-tools",
+  "displayName": "Pydantic Tools",
+  "description": "PyCharm-inspired Pydantic actions: insert arguments, complete field names, navigate to fields, and check include/exclude.",
+  "version": "0.1.1",
+  "publisher": "Toximiner",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "python",
+    "pydantic",
+    "arguments",
+    "quick fix",
+    "pycharm"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onLanguage:python"
+  ],
+  "extensionDependencies": [
+    "ms-python.python",
+    "ms-python.vscode-pylance"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "Signature information depends on the Python language server and workspace trust."
+    },
+    "virtualWorkspaces": false
+  },
+  "scripts": {
+    "test": "node --test --test-isolation=none test/*.test.js",
+    "check": "node --check src/core.js && node --check src/source.js && node --check src/models.js && node --check src/extension.js",
+    "package": "vsce package --no-dependencies"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "pydanticTools.insertRequired",
+        "title": "＋ Insert Required Arguments",
+        "category": "Pydantic",
+        "enablement": "editorLangId == python && config.pydanticTools.enabled"
+      },
+      {
+        "command": "pydanticTools.insertAll",
+        "title": "≡ Insert All Arguments",
+        "category": "Pydantic",
+        "enablement": "editorLangId == python && config.pydanticTools.enabled"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "pydanticTools.insertRequired",
+          "when": "editorLangId == python && config.pydanticTools.enabled",
+          "group": "pydantic@1"
+        },
+        {
+          "command": "pydanticTools.insertAll",
+          "when": "editorLangId == python && config.pydanticTools.enabled",
+          "group": "pydantic@2"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Pydantic Tools",
+      "properties": {
+        "pydanticTools.enabled": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "description": "Enable Pydantic actions, field completions and diagnostics."
+        },
+        "pydanticTools.unknownFieldDiagnostics": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "description": "Warn about unknown literal field names in validators and top-level include/exclude sets or dictionaries."
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@vscode/vsce": "4.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Toximiner/pydantic-tools.git"
+  },
+  "homepage": "https://github.com/Toximiner/pydantic-tools#readme",
+  "bugs": {
+    "url": "https://github.com/Toximiner/pydantic-tools/issues"
+  },
+  "icon": "assets/icon.png",
+  "galleryBanner": {
+    "color": "#1e1f22",
+    "theme": "dark"
+  }
+}
